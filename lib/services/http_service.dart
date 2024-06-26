@@ -17,7 +17,7 @@ class HttpService {
     try {
       String _url = "$_base_url$_path";
       Response _response = await dio.get(_url);
-      print(_response);
+      // print(_response);
       return _response;
     } catch (e) {
       print('HttpError: $e');
