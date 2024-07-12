@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:share/share.dart';
 
 import 'package:asfasfasf/controller/database_service.dart';
 import 'package:asfasfasf/model/note_model.dart';
@@ -87,5 +88,11 @@ class NotesController extends GetxController {
     contentController.text = '';
     getAllNotes();
     Get.back();
+  }
+
+  void shareNote(String title, String content) {
+    Share.share('''$title 
+    $content
+    Made By omar Khalifa''');
   }
 }

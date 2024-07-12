@@ -1,8 +1,9 @@
 import 'package:asfasfasf/controller/notes_controller.dart';
 import 'package:asfasfasf/views/add_new_note_page.dart';
-import 'package:asfasfasf/views/ediet_view.dart';
+import 'package:asfasfasf/views/details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 
@@ -20,7 +21,9 @@ class HomePage extends StatelessWidget {
             backgroundColor: Colors.blue,
             actions: [popUpMenu(controller: _controller)],
           ),
-          body: NewView(controller: _controller),
+          body: _controller.notes.isEmpty
+              ? const LoadingView()
+              : NoteView(controller: _controller),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               Get.to(() => AddNewNotePage());
@@ -50,8 +53,8 @@ class popUpMenu extends StatelessWidget {
     List<PopupMenuItem<String>> dropDown = ['Delete All'].map(
       (e) {
         return PopupMenuItem(
-          child: Text(e),
           value: e,
+          child: Text(e),
         );
       },
     ).toList();
@@ -75,8 +78,8 @@ class popUpMenu extends StatelessWidget {
   }
 }
 
-class NewView extends StatelessWidget {
-  const NewView({
+class NoteView extends StatelessWidget {
+  const NoteView({
     super.key,
     required NotesController controller,
   }) : _controller = controller;
@@ -103,7 +106,7 @@ class NewView extends StatelessWidget {
               middleText: "Are you sure you want to Delete this note",
               onCancel: () => Get.back(),
             ),
-            onTap: () => Get.to(() => DetailsView(
+            onTap: () => Get.to(() => DetailsPage(
                   index: index,
                 )),
             child: Container(
@@ -156,51 +159,23 @@ class NewView extends StatelessWidget {
   }
 }
 
-class OldView extends StatelessWidget {
-  const OldView({
-    super.key,
-    required NotesController controller,
-  }) : _controller = controller;
-
-  final NotesController _controller;
+class LoadingView extends StatelessWidget {
+  const LoadingView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          for (int i = 0; i < _controller.notes.length; i++)
-            Card(
-              color: Colors.grey,
-              shadowColor: Colors.black,
-              elevation: 10,
-              child: Column(
-                children: [
-                  Text(
-                    _controller.notes[i].title!,
-                    style: const TextStyle(color: Colors.black),
-                  ),
-                  const SizedBox(
-                    height: 100,
-                    width: 1000,
-                  ),
-                  Text(
-                    _controller.notes[i].content!,
-                    style: const TextStyle(color: Colors.black),
-                  ),
-                  Text(
-                    _controller.notes[i].timeCreated!,
-                    style: const TextStyle(color: Colors.black),
-                  ),
-                  Text(
-                    _controller.notes[i].timeEdited!,
-                    style: const TextStyle(color: Colors.black),
-                  )
-                ],
-              ),
-            ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Lottie.asset('assets/note.json'),
+        const SizedBox(
+          height: 50,
+        ),
+        const Text(
+          "You don't have any Notes",
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        ),
+      ],
     );
   }
 }

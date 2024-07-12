@@ -1,14 +1,18 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class popUpMenu extends StatelessWidget {
+  const popUpMenu({super.key});
+
   @override
   Widget build(BuildContext context) {
     List<PopupMenuItem<String>> dropDown = ['Delete All'].map(
       (e) {
         return PopupMenuItem(
-          child: Text(e),
           value: e,
+          child: Text(e),
         );
       },
     ).toList();

@@ -6,9 +6,9 @@ import 'package:get/get.dart';
 
 import 'package:asfasfasf/controller/notes_controller.dart';
 
-class DetailsView extends StatelessWidget {
+class EditPage extends StatelessWidget {
   int index;
-  DetailsView({
+  EditPage({
     super.key,
     required this.index,
   });
@@ -22,7 +22,7 @@ class DetailsView extends StatelessWidget {
     log(_controller.notes[index].id.toString());
     log(_controller.notes[index].timeCreated.toString());
     return Scaffold(
-      appBar: AppBar(title: const Text('Details')),
+      appBar: AppBar(title: const Text('Edit')),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
