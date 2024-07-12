@@ -61,7 +61,7 @@ class AddNewNotePage extends StatelessWidget {
 
   Widget contentInput() {
     return TextField(
-      style: TextStyle(fontSize: 22),
+      style: const TextStyle(fontSize: 22),
       maxLines: null,
       controller: _controller.contentController,
       decoration: const InputDecoration(

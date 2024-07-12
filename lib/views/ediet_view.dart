@@ -22,10 +22,10 @@ class DetailsView extends StatelessWidget {
     log(_controller.notes[index].id.toString());
     log(_controller.notes[index].timeCreated.toString());
     return Scaffold(
-      appBar: AppBar(title: Text('Details')),
+      appBar: AppBar(title: const Text('Details')),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(top: 15, left: 15, right: 15),
+          padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
           child: Column(
             children: <Widget>[
               titleInput(),
@@ -40,11 +40,11 @@ class DetailsView extends StatelessWidget {
               id: _controller.notes[index].id!,
               timeCreated: _controller.notes[index].timeCreated!);
         },
-        child: Icon(
+        backgroundColor: Colors.blue,
+        child: const Icon(
           Icons.edit_note_rounded,
           color: Colors.white,
         ),
-        backgroundColor: Colors.blue,
       ),
     );
   }
@@ -69,7 +69,7 @@ class DetailsView extends StatelessWidget {
 
   Widget contentInput() {
     return TextField(
-      style: TextStyle(fontSize: 22),
+      style: const TextStyle(fontSize: 22),
       maxLines: null,
       controller: _controller.contentController,
       decoration: const InputDecoration(

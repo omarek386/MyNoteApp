@@ -1,6 +1,6 @@
 import 'package:asfasfasf/controller/notes_controller.dart';
 import 'package:asfasfasf/views/add_new_note_page.dart';
-import 'package:asfasfasf/views/details_view.dart';
+import 'package:asfasfasf/views/ediet_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
@@ -15,7 +15,11 @@ class HomePage extends StatelessWidget {
     return GetBuilder<NotesController>(
       builder: (_) {
         return Scaffold(
-          appBar: AppBar(title: const Text('HomePage')),
+          appBar: AppBar(
+            title: const Text('HomePage'),
+            backgroundColor: Colors.blue,
+            actions: [popUpMenu(controller: _controller)],
+          ),
           body: NewView(controller: _controller),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
@@ -28,6 +32,44 @@ class HomePage extends StatelessWidget {
             ),
           ),
         );
+      },
+    );
+  }
+}
+
+class popUpMenu extends StatelessWidget {
+  const popUpMenu({
+    super.key,
+    required NotesController controller,
+  }) : _controller = controller;
+
+  final NotesController _controller;
+
+  @override
+  Widget build(BuildContext context) {
+    List<PopupMenuItem<String>> dropDown = ['Delete All'].map(
+      (e) {
+        return PopupMenuItem(
+          child: Text(e),
+          value: e,
+        );
+      },
+    ).toList();
+    return PopupMenuButton(
+      itemBuilder: (context) => dropDown,
+      onSelected: (value) {
+        switch (value) {
+          case 'Delete All':
+            Get.defaultDialog(
+              onConfirm: () {
+                _controller.deleteAllNotes();
+                Get.back();
+              },
+              middleText: "Are you sure you want to Delete All note",
+              onCancel: () => Get.back(),
+            );
+            break;
+        }
       },
     );
   }
@@ -53,8 +95,14 @@ class NewView extends StatelessWidget {
         staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
         itemBuilder: (context, index) {
           return GestureDetector(
-            onLongPress: () =>
-                _controller.deleteNote(_controller.notes[index].id!),
+            onLongPress: () => Get.defaultDialog(
+              onConfirm: () {
+                _controller.deleteNote(_controller.notes[index].id!);
+                Get.back();
+              },
+              middleText: "Are you sure you want to Delete this note",
+              onCancel: () => Get.back(),
+            ),
             onTap: () => Get.to(() => DetailsView(
                   index: index,
                 )),
@@ -63,7 +111,7 @@ class NewView extends StatelessWidget {
                 color: Colors.grey[300],
                 borderRadius: BorderRadius.circular(10),
               ),
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +119,7 @@ class NewView extends StatelessWidget {
                   Text(
                     //todo add note(title) from index
                     _controller.notes[index].title!,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 21,
                       fontWeight: FontWeight.bold,
                     ),
@@ -79,19 +127,19 @@ class NewView extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     softWrap: false,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
                     //todo add note(content) from index
                     _controller.notes[index].content!,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 17,
                     ),
                     maxLines: 6,
                     // overflow: TextOverflow.visible,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
