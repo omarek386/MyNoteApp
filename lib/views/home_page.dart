@@ -1,6 +1,7 @@
 import 'package:asfasfasf/controller/notes_controller.dart';
 import 'package:asfasfasf/views/add_new_note_page.dart';
 import 'package:asfasfasf/views/details_page.dart';
+import 'package:asfasfasf/views/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -19,7 +20,14 @@ class HomePage extends StatelessWidget {
           appBar: AppBar(
             title: const Text('HomePage'),
             backgroundColor: Colors.blue,
-            actions: [popUpMenu(controller: _controller)],
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    showSearch(context: context, delegate: SearchBarDddd());
+                  },
+                  icon: Icon(Icons.search)),
+              popUpMenu(controller: _controller)
+            ],
           ),
           body: _controller.notes.isEmpty
               ? const LoadingView()
