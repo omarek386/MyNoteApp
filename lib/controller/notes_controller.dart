@@ -42,6 +42,12 @@ class NotesController extends GetxController {
         DateFormat('MMM dd yyy  HH:mm:ss').format(DateTime.now());
     String timeEdited =
         DateFormat('MMM dd yyy  HH:mm:ss').format(DateTime.now());
+    if (title == '' && content == '') {
+      Get.snackbar('Error', 'Please fill in all fields');
+      return;
+    } else if (title == '') {
+      title = 'لا يوجد عنوان';
+    }
     Note note = Note(
         content: content,
         timeCreated: timeCreated,
