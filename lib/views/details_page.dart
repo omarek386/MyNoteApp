@@ -116,7 +116,7 @@ class DetailsPage extends StatelessWidget {
                                 height: 15,
                               ),
                               Text(
-                                "Content Word Count :  ${_controller.contentWordCount}",
+                                "Content Word Count :  ${_controller.notes[index].contentWordCount.toString()}",
                                 style: const TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -126,7 +126,7 @@ class DetailsPage extends StatelessWidget {
                                 height: 15,
                               ),
                               Text(
-                                "Content Character Count :  ${_controller.contentCharCount}",
+                                "Content Character Count :  ${_controller.notes[index].contentCharCount.toString()}",
                                 style: const TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,

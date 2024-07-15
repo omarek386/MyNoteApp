@@ -10,7 +10,7 @@ class MySqlDatabaseService {
   // MySqlDatabaseService._privateController();
   // static final instance = MySqlDatabaseService._privateController();
   static const _dbName = "notes.db";
-  static const _dbVersion = 4;
+  static const _dbVersion = 5;
   static const _tableName = "notes";
 
   Database? _db;
@@ -42,7 +42,9 @@ class MySqlDatabaseService {
         title TEXT NOT NULL,
         content TEXT NOT NULL,
         timeEdited TEXT NOT NULL,
-        timeCreated TEXT NOT NULL
+        timeCreated TEXT NOT NULL,
+        contentWordCount INTEGER NOT NULL,
+        contentCharCount INTEGER NOT NULL
       )
       ''');
   }
@@ -85,6 +87,8 @@ class MySqlDatabaseService {
           timeCreated: maps[index]['timeCreated'],
           timeEdited: maps[index]['timeEdited'],
           title: maps[index]['title'],
+          contentCharCount: maps[index]['contentCharCount'],
+          contentWordCount: maps[index]['contentWordCount'],
         );
       },
     );

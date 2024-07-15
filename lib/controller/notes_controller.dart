@@ -48,14 +48,17 @@ class NotesController extends GetxController {
     } else if (title == '') {
       title = 'لا يوجد عنوان';
     }
-    Note note = Note(
-        content: content,
-        timeCreated: timeCreated,
-        timeEdited: timeEdited,
-        title: title);
-    await _database.addNote(note);
     contentWordCount = wordCount(content);
     contentCharCount = charCount(content);
+    Note note = Note(
+      content: content,
+      timeCreated: timeCreated,
+      timeEdited: timeEdited,
+      title: title,
+      contentCharCount: contentCharCount,
+      contentWordCount: contentWordCount,
+    );
+    await _database.addNote(note);
     titleController.text = '';
     contentController.text = '';
     getAllNotes();
@@ -81,15 +84,18 @@ class NotesController extends GetxController {
     String content = contentController.text;
     String timeEdited =
         DateFormat('MMM dd yyy  HH:mm:ss').format(DateTime.now());
-    Note note = Note(
-        id: id,
-        content: content,
-        timeEdited: timeEdited,
-        title: title,
-        timeCreated: timeCreated);
-    await _database.updateNote(note);
     contentWordCount = wordCount(content);
     contentCharCount = charCount(content);
+    Note note = Note(
+      id: id,
+      content: content,
+      timeEdited: timeEdited,
+      title: title,
+      timeCreated: timeCreated,
+      contentCharCount: contentCharCount,
+      contentWordCount: contentWordCount,
+    );
+    await _database.updateNote(note);
     titleController.text = '';
     contentController.text = '';
     getAllNotes();

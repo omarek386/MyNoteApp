@@ -6,12 +6,16 @@ class Note {
   String? content;
   String? timeCreated;
   String? timeEdited;
+  int? contentWordCount;
+  int? contentCharCount;
   Note({
     this.id,
     this.title,
     this.content,
     this.timeCreated,
     this.timeEdited,
+    this.contentWordCount,
+    this.contentCharCount,
   });
 
   Map<String, dynamic> toMap() {
@@ -21,6 +25,8 @@ class Note {
       'content': content,
       'timeCreated': timeCreated,
       'timeEdited': timeEdited,
+      'contentWordCount': contentWordCount,
+      'contentCharCount': contentCharCount,
     };
   }
 }
