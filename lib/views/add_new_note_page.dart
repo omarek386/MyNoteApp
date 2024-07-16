@@ -12,6 +12,26 @@ class AddNewNotePage extends StatelessWidget {
     _controller.contentController.text = '';
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              Get.defaultDialog(
+                confirmTextColor: Colors.black54,
+                buttonColor: Colors.amber,
+                onConfirm: () {
+                  Get.back();
+                  _controller.addNote();
+                  Get.back();
+                },
+                middleText: "Are you sure you want to exit with out saving?",
+                textConfirm: 'Save',
+                textCancel: 'Discard',
+                onCancel: () {
+                  Get.back();
+                  Get.back();
+                },
+              );
+            },
+            icon: const Icon(Icons.arrow_back)),
         title: const Text('Add New Note'),
       ),
       body: SingleChildScrollView(
@@ -32,7 +52,6 @@ class AddNewNotePage extends StatelessWidget {
         onPressed: () {
           _controller.addNote();
         },
-        backgroundColor: Colors.blue,
         child: const Icon(
           Icons.save,
           color: Colors.white,

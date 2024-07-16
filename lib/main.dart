@@ -18,7 +18,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Notes App',
-      theme: ThemeData.light(),
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(color: Colors.amber),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Colors.amber,
+        ),
+      ),
       home: HomePage(),
     );
   }

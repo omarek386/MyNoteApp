@@ -22,7 +22,38 @@ class EditPage extends StatelessWidget {
     log(_controller.notes[index].id.toString());
     log(_controller.notes[index].timeCreated.toString());
     return Scaffold(
-      appBar: AppBar(title: const Text('Edit')),
+      appBar: AppBar(
+          title: const Text('Edit'),
+          leading: IconButton(
+              onPressed: () {
+                if (_controller.titleController.text !=
+                        _controller.notes[index].title ||
+                    _controller.contentController.text !=
+                        _controller.notes[index].content) {
+                  Get.defaultDialog(
+                    confirmTextColor: Colors.black54,
+                    buttonColor: Colors.amber,
+                    onConfirm: () {
+                      Get.back();
+                      _controller.updateNote(
+                          id: _controller.notes[index].id!,
+                          timeCreated: _controller.notes[index].timeCreated!);
+                      Get.back();
+                    },
+                    middleText:
+                        "Are you sure you want to exit with out saving?",
+                    textConfirm: 'Save',
+                    textCancel: 'Discard',
+                    onCancel: () {
+                      Get.back();
+                      Get.back();
+                    },
+                  );
+                } else {
+                  Get.back();
+                }
+              },
+              icon: const Icon(Icons.arrow_back))),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
@@ -40,7 +71,6 @@ class EditPage extends StatelessWidget {
               id: _controller.notes[index].id!,
               timeCreated: _controller.notes[index].timeCreated!);
         },
-        backgroundColor: Colors.blue,
         child: const Icon(
           Icons.edit_note_rounded,
           color: Colors.white,

@@ -36,6 +36,8 @@ class DetailsPage extends StatelessWidget {
                           child: TextButton(
                             onPressed: () {
                               Get.defaultDialog(
+                                confirmTextColor: Colors.black54,
+                                buttonColor: Colors.amber,
                                 onConfirm: () {
                                   _controller
                                       .deleteNote(_controller.notes[index].id!);

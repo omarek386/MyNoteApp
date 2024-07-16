@@ -18,8 +18,7 @@ class HomePage extends StatelessWidget {
       builder: (_) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text('HomePage'),
-            backgroundColor: Colors.blue,
+            title: const Text('Notes'),
             actions: [
               IconButton(
                   onPressed: () {
@@ -36,7 +35,6 @@ class HomePage extends StatelessWidget {
             onPressed: () {
               Get.to(() => AddNewNotePage());
             },
-            backgroundColor: Colors.blue,
             child: const Icon(
               Icons.add,
               color: Colors.white,
@@ -72,6 +70,9 @@ class popUpMenu extends StatelessWidget {
         switch (value) {
           case 'Delete All':
             Get.defaultDialog(
+              textConfirm: 'Delete All',
+              confirmTextColor: Colors.black54,
+              buttonColor: Colors.amber,
               onConfirm: () {
                 _controller.deleteAllNotes();
                 Get.back();
@@ -107,6 +108,8 @@ class NoteView extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onLongPress: () => Get.defaultDialog(
+              confirmTextColor: Colors.black54,
+              buttonColor: Colors.amber,
               onConfirm: () {
                 _controller.deleteNote(_controller.notes[index].id!);
                 Get.back();
