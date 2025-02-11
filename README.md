@@ -15,15 +15,22 @@ A full-featured note-taking application built with [Framework/Language Used]. Th
 
 ## Screenshots
 
-### Screenshot 1: Main Dashboard
+### Main Dashboard
 
-![Screenshot_1739237770](https://github.com/user-attachments/assets/310f2ae2-b989-46f7-a659-fb165ddd622e)
-![Screenshot_1739237739](https://github.com/user-attachments/assets/1d3c9d37-e328-4908-8307-46467ee0a9ba)
-![Screenshot_1739237725](https://github.com/user-attachments/assets/41c29f07-33cb-4fa7-b5cd-90a5166099a4)
-![Screenshot_1739237717](https://github.com/user-attachments/assets/ea5d562d-d6c7-4af4-855b-bdec78e304b2)
-![Screenshot_1739237710](https://github.com/user-attachments/assets/dded3091-2606-4e5c-9a4b-464f33d1e009)
-![Screenshot_1739237667](https://github.com/user-attachments/assets/e9cbc9d5-b536-4bd9-b1e1-e6b294921d4f)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/310f2ae2-b989-46f7-a659-fb165ddd622e" width="300" alt="Screenshot 1">
+  <img src="https://github.com/user-attachments/assets/1d3c9d37-e328-4908-8307-46467ee0a9ba" width="300" alt="Screenshot 2">
+</p>
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/41c29f07-33cb-4fa7-b5cd-90a5166099a4" width="300" alt="Screenshot 3">
+  <img src="https://github.com/user-attachments/assets/ea5d562d-d6c7-4af4-855b-bdec78e304b2" width="300" alt="Screenshot 4">
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/dded3091-2606-4e5c-9a4b-464f33d1e009" width="300" alt="Screenshot 5">
+  <img src="https://github.com/user-attachments/assets/e9cbc9d5-b536-4bd9-b1e1-e6b294921d4f" width="300" alt="Screenshot 6">
+</p>
 
 ## Technologies Used
 
