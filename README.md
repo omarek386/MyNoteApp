@@ -17,33 +17,13 @@ A full-featured note-taking application built with [Framework/Language Used]. Th
 
 ### Screenshot 1: Main Dashboard
 
-![Main Dashboard](screenshots/dashboard.png)
-_Description: A view of the main dashboard showing a list of notes._
+![Screenshot_1739237770](https://github.com/user-attachments/assets/310f2ae2-b989-46f7-a659-fb165ddd622e)
+![Screenshot_1739237739](https://github.com/user-attachments/assets/1d3c9d37-e328-4908-8307-46467ee0a9ba)
+![Screenshot_1739237725](https://github.com/user-attachments/assets/41c29f07-33cb-4fa7-b5cd-90a5166099a4)
+![Screenshot_1739237717](https://github.com/user-attachments/assets/ea5d562d-d6c7-4af4-855b-bdec78e304b2)
+![Screenshot_1739237710](https://github.com/user-attachments/assets/dded3091-2606-4e5c-9a4b-464f33d1e009)
+![Screenshot_1739237667](https://github.com/user-attachments/assets/e9cbc9d5-b536-4bd9-b1e1-e6b294921d4f)
 
-### Screenshot 2: Creating a New Note
-
-![Creating a New Note](screenshots/create_note.png)
-_Description: The interface for creating a new note with title and content fields._
-
-### Screenshot 3: Editing an Existing Note
-
-![Editing an Existing Note](screenshots/edit_note.png)
-_Description: The interface for editing an existing note._
-
-### Screenshot 4: Note Organization
-
-![Note Organization](screenshots/organize_notes.png)
-_Description: Shows how notes can be organized using tags or folders._
-
-### Screenshot 5: Search Functionality
-
-![Search Functionality](screenshots/search.png)
-_Description: Demonstrates the search functionality to find notes quickly._
-
-### Screenshot 6: Settings/Preferences
-
-![Settings/Preferences](screenshots/settings.png)
-_Description: The settings screen where users can customize the application._
 
 ## Technologies Used
 
